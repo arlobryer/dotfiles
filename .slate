@@ -2,7 +2,13 @@
 # https://github.com/jigish/slate#readme
 
 # Config
-config windowHintsFontSize 100
+config windowHintsIgnoreHiddenWindows false
+config windowHintsShowIcons true
+config windowHintsSpread true
+config windowHintsFontSize 50
+config windowHintsSpreadPadding 100
+config windowHintsFontColor 255;0;0;1.0
+config windowHintsDuration 1.5
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
 config windowHintsTopLeftX (windowSizeX/2)-(windowHintsWidth/2)
@@ -55,7 +61,7 @@ bind n:cmd;ctrl;alt move ${bottomLeftQuarter}
 bind m:cmd;ctrl;alt move ${bottomRightQuarter}
 
 bind ;:cmd;ctrl throw previous
-bind /:cmd;ctrl hint ASDFJKLGH
+bind /:cmd;ctrl hint asdfghjkl;qwertyuiop
 bind 1:cmd;shift layout oneScreen
 bind 2:cmd;shift layout twoScreen
 
@@ -66,10 +72,10 @@ bind up:cmd;ctrl    resize +0 -10%
 bind down:cmd;ctrl  resize +0 +10%
 
 # Nudge commands
-bind right:ctrl;alt nudge +10% +0
-bind left:ctrl;alt  nudge -10% +0
-bind up:ctrl;alt    nudge +0 -10%
-bind down:ctrl;alt  nudge +0 +10%
+bind l:ctrl;alt nudge +10% +0
+bind j:ctrl;alt  nudge -10% +0
+bind i:ctrl;alt    nudge +0 -10%
+bind k:ctrl;alt  nudge +0 +10%
 
 # Focus Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
@@ -79,3 +85,5 @@ bind i:cmd       focus up
 bind k:cmd     focus down
 bind i:cmd;alt   focus behind
 bind k:cmd;alt focus behind
+
+bind tab:cmd switch
