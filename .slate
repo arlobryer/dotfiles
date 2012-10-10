@@ -6,7 +6,9 @@ config windowHintsIgnoreHiddenWindows false
 config windowHintsShowIcons true
 config windowHintsSpread true
 config windowHintsFontSize 50
-config windowHintsSpreadPadding 100
+config windowHintsSpreadSearchWidth 100
+config windowHintsSpreadSearchHeight 100
+config windowHintsSpreadPadding 50
 config windowHintsFontColor 255;0;0;1.0
 config windowHintsDuration 1.5
 config nudgePercentOf screenSize
@@ -39,14 +41,7 @@ alias bottomLeftQuarter ${sox};${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
 alias bottomRightQuarter ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
 
 # Application aliases
-
 # 1 monitor layout
-layout oneScreen 'Aquamacs' move ${fullscreen}
-layout twoScreen 'Mail' move ${topHalf}
-layout twoScreen 'Skype' move ${bottomHalf}
-layout threeScreen 'iCal' move ${rightHalf}
-layout threeScreen 'Reminders' move ${leftHalf}
-layout sixScreen 'iTunes' move ${fullscreen}
 
 # Bindings
 bind ;:cmd;ctrl;alt move ${centered}
@@ -62,14 +57,12 @@ bind m:cmd;ctrl;alt move ${bottomRightQuarter}
 
 bind ;:cmd;ctrl throw previous
 bind /:cmd;ctrl hint asdfghjkl;qwertyuiop
-bind 1:cmd;shift layout oneScreen
-bind 2:cmd;shift layout twoScreen
 
-
-bind right:cmd;ctrl resize +10% +0
-bind left:cmd;ctrl  resize -10% +0
-bind up:cmd;ctrl    resize +0 -10%
-bind down:cmd;ctrl  resize +0 +10%
+#Resize bindings
+bind l:cmd;ctrl  resize +10% +0
+bind j:cmd;ctrl  resize -10% +0
+bind i:cmd;ctrl  resize +0 -10%
+bind k:cmd;ctrl  resize +0 +10%
 
 # Nudge commands
 bind l:ctrl;alt nudge +10% +0
@@ -87,3 +80,4 @@ bind i:cmd;alt   focus behind
 bind k:cmd;alt focus behind
 
 bind tab:cmd switch
+
