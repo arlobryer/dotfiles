@@ -30,23 +30,21 @@ source $ZSH/oh-my-zsh.sh
 #this is for the venv wrappers
 source /usr/local/bin/virtualenvwrapper.sh
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin:/opt/local/bin
 
-#ROOT options
-export ROOTSYS=/opt/root
-export NODE_PATH=/usr/local/lib/node_modules
-#export PATH=/usr/bin/:$PATH
-export EDITOR=nano
-#CMSSW CVS repository
-export CVSROOT=arlogb@cmscvs.cern.ch:/cvs_server/repositories/CMSSW
-export CVS_RSH=ssh
-#export ARCHFLAGS="-arch x86_64"
+export EDITOR=macvim
+#This is for java env in Palantir. 
+export PALANTIR_JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
+export PGPATH=/usr/local/Cellar/palantir-gotham-39/3.9.1
+export QSPATH=$PGPATH
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/texlive/2012basic/bin/universal-darwin:~/.cabal/bin/
 #Aliases
 alias rm='rm -i'
 alias aqua='aquamacs'
 alias bc='bc -l'
 alias preview='open -a Preview'
-alias setroot='export PATH=$PATH:$ROOTSYS/bin; export PYTHONPATH=$ROOTSYS/lib:$PYTHONPATH; export LD_LIBRARY_PATH=$ROOTSYS/lib:$PYTHONDIR/lib:$LD_LIBRARY_PATH'
+alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
+alias palandir='cd /usr/local/Cellar/palantir-gotham-39/3.9.1'
 alias mongostart="mongod -f /usr/local/Cellar/mongodb/1.8.2-x86_64/mongod.conf"
 alias mongostop="mongostop_func"
 
