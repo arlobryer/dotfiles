@@ -11,6 +11,7 @@ config windowHintsSpreadSearchHeight 100
 config windowHintsSpreadPadding 50
 config windowHintsFontColor 255;0;0;1.0
 config windowHintsDuration 1.5
+config orderScreensLeftToRight true
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
 config windowHintsTopLeftX (windowSizeX/2)-(windowHintsWidth/2)
@@ -23,10 +24,11 @@ alias ssx screenSizeX
 alias ssy screenSizeY
 
 #Monitor size aliases
-alias mon-laptop 1440x900
-
+alias laptop 1440x900
+alias palan-retinaMBP 2880x1800
+alias palan-thunderbolt 2560x1440
 # Default Layouts
-default 1monitor resolutions:${mon-laptop}
+default 1monitor resolutions:${laptop}
 
 # Position aliases
 alias centered ${sox}+${ssx}/8;${soy}+${ssy}/8 ${ssx}/8*6;${ssy}/8*6
@@ -42,6 +44,13 @@ alias bottomRightQuarter ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
 
 # Application aliases
 # 1 monitor layout
+layout oneScreen 'Eclipse' move ${topHalf}
+layout oneScreen 'MacVim' move ${leftHalf}
+layout twoScreen 'Mail' move ${topHalf}
+layout twoScreen 'Skype' move ${bottomHalf}
+layout twoScreen 'Calendar' move ${rightHalf}
+layout twoScreen 'Reminders' move ${leftHalf}
+layout sixScreen 'iTunes' move ${fullscreen}
 
 # Bindings
 bind ;:cmd;ctrl;alt move ${centered}
@@ -54,6 +63,10 @@ bind u:cmd;ctrl;alt move ${topLeftQuarter}
 bind o:cmd;ctrl;alt move ${topRightQuarter}
 bind n:cmd;ctrl;alt move ${bottomLeftQuarter}
 bind m:cmd;ctrl;alt move ${bottomRightQuarter}
+
+bind 1:cmd;shift layout oneScreen
+bind 2:cmd;shift layout twoScreen
+
 
 bind ;:cmd;ctrl throw previous
 bind /:cmd;ctrl hint asdfghjkl;qwertyuiop
@@ -70,6 +83,10 @@ bind j:ctrl;alt  nudge -10% +0
 bind i:ctrl;alt    nudge +0 -10%
 bind k:ctrl;alt  nudge +0 +10%
 
+# throw commands
+bind ,:cmd;ctrl;alt throw 0 resize
+bind .:cmd;ctrl;alt throw 1 resize
+
 # Focus Bindings
 # NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
 bind l:cmd    focus right
@@ -79,5 +96,5 @@ bind k:cmd     focus down
 bind i:cmd;alt   focus behind
 bind k:cmd;alt focus behind
 
-bind tab:cmd switch
+#bind tab:cmd switch
 
