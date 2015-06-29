@@ -17,10 +17,12 @@ brew cask install skype
 brew cask install vlc
 brew cask install itsycal
 brew cask install steam
+brew cask install atom
 
 brew cask cleanup
 
 #Some brew native things too
+brew install zsh
 brew install git git-flow tig
 brew install vim
 brew install aspell
