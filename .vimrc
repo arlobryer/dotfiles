@@ -14,7 +14,7 @@ colorscheme solarized
 
 set showcmd		"Display incomplete commands
 set number 		"Show line number
-filetype plugin indent on 	"Load file type plugins + indentation
+set backspace=indent,eol,start
 
 set noshowmode
 set showmatch
@@ -25,22 +25,22 @@ set wildmenu
 
 set ofu=syntaxcomplete#Complete
 """Whitespace
-set nowrap			"Don't wrap
-set expandtab			"Use spaces not tabs
+set tabstop=4 
+set shiftwidth=4 
+set softtabstop=4
+set expandtab
 set autoindent
-set copyindent
-set shiftwidth=4
 set shiftround
 set smarttab
+
+"""Python whitespace specifics
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 """Searching
 set hlsearch			"Highlight search
 set incsearch			"Make search incremental
 set ignorecase			"Search is case insensitive
 set smartcase			"Unless at least one capital letter
-"Let's remove the highlighting after the search with 'esc'
-nnoremap <esc> :noh<return><esc> 
-
 
 set history=1000
 set undolevels=1000
@@ -93,12 +93,11 @@ set guioptions-=l
 set guioptions-=r
 set guioptions-=b
 
-
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-set encoding=utf-8
-set guifont=Inconsolata\ for\ Powerline:h13
-let g:Powerline_symbols = 'fancy'
+"Airline"
+set guifont=Source\ Code\ Pro\ Medium:h11
 set laststatus=2
+let g:airline_powerline_fonts=1
+let g:airline_theme='solarized'
 
 
 "Markdown"
@@ -112,3 +111,6 @@ endif
 
 "Spelling"
 autocmd BufEnter,BufNewFile,BufRead *.{txt,md} setlocal spell spelllang=en_gb
+
+"Wrapping"
+autocmd BufEnter,BufNewFile,BufRead *.{txt,md} set wrap textwidth=120 fo=aw2tq

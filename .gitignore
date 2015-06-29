@@ -1,1 +1,16 @@
+dist/
+.idea
 .DS_Store
+*.DS_Store
+*DS_Store
+*.pyc
+*.iml
+*.ipr
+*.iws
+.gradle/
+build/
+*.doc
+*.docx
+.settings/
+lib/
+ecbuild/

@@ -1,11 +1,30 @@
 [user]
-	name = arlogb
-	email = arlobryer@gmail.com
+	name = "Arlo Bryer"
+	email = abryer@palantir.com
 [core]
-	excludesfile = /Users/arlogb/.gitignore_global
+	excludesfile = /Users/abryer/.gitignore
+	autocrlf = input
+    editor = gvim -f
 [gui]
-	recentrepo = /Users/arlogb/TESTING/backend
+	recentrepo = /Users/abryer/TESTING/backend
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lol = log --color --graph --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+        loga = log --color --pretty=format:"%ad:%an:%d:%B" --date=short --reverse --all --since=2.months.ago
+        l = log --color
+        s = status
+        co = checkout
+        c = commit
+        a = add
+        ca = commit -a
+        p = pull
+        d = diff
 [color]
 	ui = auto
+	diff = auto
+        interactive = auto
+        status = auto
+[push]
+	default = simple
+[branch]
+	autosetuprebase = always
