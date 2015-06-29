@@ -1,6 +1,8 @@
 #!/bin/sh
 
-brew udpate
+set -e
+
+brew update
 brew tap caskroom/cask
 brew install caskroom/cask/brew-cask
 
@@ -12,7 +14,7 @@ brew cask install flux
 brew cask install amethyst
 brew cask install dropbox
 brew cask install spotify
-brew cask install chrome
+brew cask install google-chrome
 brew cask install skype
 brew cask install vlc
 brew cask install itsycal
@@ -26,7 +28,6 @@ brew install zsh
 brew install git git-flow tig
 brew install vim
 brew install aspell
-brew install gfortran
 brew install ghc
 brew install macvim
 brew install wget
@@ -37,4 +38,4 @@ brew install nmap
 brew install sqlite
 brew install wireshark
 brew install dos2unix
-brew install python python3 python26
+brew install python python3
