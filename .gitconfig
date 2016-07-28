@@ -1,10 +1,10 @@
 [user]
 	name = "Arlo Bryer"
-	email = arlobryer@gmail.com
+	email = "(none)"
 [core]
 	excludesfile = /Users/abryer/.gitignore
 	autocrlf = input
-    editor = gvim -f
+	editor = vim
 [gui]
 	recentrepo = /Users/abryer/TESTING/backend
 [alias]
