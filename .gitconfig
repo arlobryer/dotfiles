@@ -1,6 +1,6 @@
 [user]
 	name = "Arlo Bryer"
-	email = "(none)"
+	email = arlobryer@gmail.com
 [core]
 	excludesfile = /Users/abryer/.gitignore
 	autocrlf = input
