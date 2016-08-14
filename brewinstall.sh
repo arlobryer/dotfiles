@@ -39,3 +39,4 @@ brew install sqlite
 brew install wireshark
 brew install dos2unix
 brew install python python3
+brew install the_silver_surfer

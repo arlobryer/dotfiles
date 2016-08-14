@@ -29,15 +29,8 @@ source $ZSH/oh-my-zsh.sh
 #this is for the venv wrappers
 source /usr/local/bin/virtualenvwrapper.sh
 
-#Palantir completions
-fpath=(~/.zsh/completion $fpath)
-
 export EDITOR=nano
-#This is for java env in Palantir. 
-export PALANTIR_JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
-export JAVA_HOME=$PALANTIR_JAVA_HOME
-export PGPATH=/usr/local/Cellar/palantir-gotham-311/3.11.1
-export QSPATH=$PGPATH
+export JAVA_HOME=$(/usr/libexec/java_home)
 export GEMS=/usr/local/opt/ruby/bin
 export GNUBIN=/usr/local/opt/coreutils/libexec/gnubin
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
@@ -54,8 +47,8 @@ alias gitk="/usr/bin/wish $(which gitk)"
 function set_title_tab {
 
     function settab   {
-	
-		    # file settab  -- invoked only if iTerm or Konsole is running 
+
+		    # file settab  -- invoked only if iTerm or Konsole is running
 
 		    #  Set iterm window tab to current directory and penultimate directory if the
 		    #  shell process is running.  Truncate to leave the rightmost $rlength characters.
@@ -68,7 +61,7 @@ function set_title_tab {
 
 			# The $rlength variable prints only the 20 rightmost characters. Otherwise iTerm truncates
 			# what appears in the tab from the left.
-	     
+
 
 				# Chage the following to change the string that actually appears in the tab:
 
@@ -77,11 +70,11 @@ function set_title_tab {
 					rlength="20"   # number of characters to appear before truncation from the left
 
 		            echo -ne "\e]1;${(l:rlength:)tab_label}\a"
-	     
 
-		else  
 
-				# For KDE konsole tabs 
+		else
+
+				# For KDE konsole tabs
 
 				# Chage the following to change the string that actually appears in the tab:
 
@@ -94,8 +87,8 @@ function set_title_tab {
 		                dcop "$KONSOLE_DCOP_SESSION" renameSession "${(l:rlength:)tab_label}"
 		        else
 		            : # do nothing if tabs don't exist
-		        fi    
-	
+		        fi
+
 		fi
 	}
 
@@ -105,7 +98,7 @@ function set_title_tab {
 		# Change the following string to change what appears in the Title Bar label:
 
 
-			title_lab=$HOST:r:r::$PWD  
+			title_lab=$HOST:r:r::$PWD
 				# Prints the host name, two colons, absolute path for current directory
 
 			# Change the title bar label dynamically:
@@ -116,21 +109,21 @@ function set_title_tab {
 	# Set tab and title bar dynamically using above-defined functions
 
 		function title_tab_chpwd { settab ; settitle }
-		
+
 		# Now we need to run it:
 	    title_tab_chpwd
 
 	# Set tab or title bar label transiently to the currently running command
-	
-	if [[ "$TERM_PROGRAM" == "iTerm.app" ]];then		
-		function title_tab_preexec {  echo -ne "\e]1; $(history $HISTCMD | cut -b7- ) \a"  } 
-		function title_tab_precmd  { settab }	
+
+	if [[ "$TERM_PROGRAM" == "iTerm.app" ]];then
+		function title_tab_preexec {  echo -ne "\e]1; $(history $HISTCMD | cut -b7- ) \a"  }
+		function title_tab_precmd  { settab }
 	else
-		function title_tab_preexec {  echo -ne "\e]2; $(history $HISTCMD | cut -b7- ) \a"  } 
-		function title_tab_precmd  { settitle }      
+		function title_tab_preexec {  echo -ne "\e]2; $(history $HISTCMD | cut -b7- ) \a"  }
+		function title_tab_precmd  { settitle }
 	fi
 
- 
+
 	typeset -ga preexec_functions
 	preexec_functions+=title_tab_preexec
 
@@ -139,13 +132,13 @@ function set_title_tab {
 
 	typeset -ga chpwd_functions
 	chpwd_functions+=title_tab_chpwd
- 
+
 }
 
 ####################
 
 set_title_tab
- 
+
 
 function _exists()
 {
@@ -159,7 +152,7 @@ function OpenInMacVim {
     server=$(mvim --serverlist | head -1)
     if [ -n "$server" ]; then
         if [ -z "$1" ]; then
-            osascript -e 'tell application "MacVim" to activate' 
+            osascript -e 'tell application "MacVim" to activate'
         else
             mvim --servername $server --remote $@
         fi
