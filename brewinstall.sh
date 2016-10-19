@@ -20,6 +20,7 @@ brew cask install vlc
 brew cask install itsycal
 brew cask install steam
 brew cask install atom
+brew cask install osxfuse
 
 brew cask cleanup
 
@@ -40,3 +41,4 @@ brew install wireshark
 brew install dos2unix
 brew install python python3
 brew install the_silver_surfer
+brew install homebrew/fuse/gcsfuse

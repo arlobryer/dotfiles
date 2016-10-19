@@ -22,7 +22,7 @@ DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(pip git osx python brew pass history-substring-search history virtualenv virtualenvwrapper)
+plugins=(pip git git-flow osx python brew pass history-substring-search history virtualenv virtualenvwrapper)
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/texlive/2013basic/bin/universal-darwin:~/.cabal/bin:$GEMS
 source $ZSH/oh-my-zsh.sh
@@ -34,6 +34,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export GEMS=/usr/local/opt/ruby/bin
 export GNUBIN=/usr/local/opt/coreutils/libexec/gnubin
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+export SPARK_HOME=/usr/local/Cellar/apache-spark/2.0.1/libexec
 #Aliases
 alias rm='rm -i'
 alias bc='bc -l'
@@ -43,6 +44,7 @@ alias palandir='cd $PGPATH'
 alias grep='grep -i'
 alias ag='ag -i'
 alias gitk="/usr/bin/wish $(which gitk)"
+alias gf='git flow'
 
 function set_title_tab {
 
@@ -146,22 +148,14 @@ function _exists()
   echo "$(( !$? ))"
 }
 
-# Opens files in a single MacVim server.
-# Picks the first server in serverlist if there are multiple servers
-function OpenInMacVim {
-    server=$(mvim --serverlist | head -1)
-    if [ -n "$server" ]; then
-        if [ -z "$1" ]; then
-            osascript -e 'tell application "MacVim" to activate'
-        else
-            mvim --servername $server --remote $@
-        fi
-    else
-        mvim $@
-    fi
-}
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-if [[ $(_exists mvim) -ne 0 ]]; then
-    alias vi='OpenInMacVim'
-    alias vim='OpenInMacVim'
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/arlogb/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/arlogb/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/arlogb/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/arlogb/google-cloud-sdk/completion.zsh.inc'
 fi
