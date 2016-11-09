@@ -22,7 +22,7 @@ DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(pip git git-flow osx python brew pass history-substring-search history virtualenv virtualenvwrapper)
+plugins=(pip git git-flow osx python pass history-substring-search history virtualenv virtualenvwrapper)
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/texlive/2013basic/bin/universal-darwin:~/.cabal/bin:$GEMS
 source $ZSH/oh-my-zsh.sh
@@ -38,9 +38,6 @@ export SPARK_HOME=/usr/local/Cellar/apache-spark/2.0.1/libexec
 #Aliases
 alias rm='rm -i'
 alias bc='bc -l'
-alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias pgstop='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
-alias palandir='cd $PGPATH'
 alias grep='grep -i'
 alias ag='ag -i'
 alias gitk="/usr/bin/wish $(which gitk)"
