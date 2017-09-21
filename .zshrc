@@ -41,7 +41,6 @@ export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 #Aliases
 alias rm='rm -i'
 alias bc='bc -l'
-alias palandir='cd $PGPATH'
 alias grep='grep -i'
 alias ag='ag -i'
 alias gf='git flow'
