@@ -22,135 +22,27 @@ DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(pip git git-flow osx python pass history-substring-search history virtualenv virtualenvwrapper)
+plugins=(pip git-flow python brew)
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/texlive/2013basic/bin/universal-darwin:~/.cabal/bin:$GEMS
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 #this is for the venv wrappers
-source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 export EDITOR=nano
 export JAVA_HOME=$(/usr/libexec/java_home)
 export GEMS=/usr/local/opt/ruby/bin
 export GNUBIN=/usr/local/opt/coreutils/libexec/gnubin
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-export SPARK_HOME=/usr/local/Cellar/apache-spark/2.0.1/libexec
 #Aliases
 alias rm='rm -i'
 alias bc='bc -l'
 alias grep='grep -i'
 alias ag='ag -i'
-alias gitk="/usr/bin/wish $(which gitk)"
 alias gf='git flow'
-
-function set_title_tab {
-
-    function settab   {
-
-		    # file settab  -- invoked only if iTerm or Konsole is running
-
-		    #  Set iterm window tab to current directory and penultimate directory if the
-		    #  shell process is running.  Truncate to leave the rightmost $rlength characters.
-		    #
-		    #  Use with functions settitle (to set iterm title bar to current directory)
-		    #  and chpwd
-
-
-		if [[ $TERM_PROGRAM == iTerm.app && -z "$KONSOLE_DCOP_SESSION" ]];then
-
-			# The $rlength variable prints only the 20 rightmost characters. Otherwise iTerm truncates
-			# what appears in the tab from the left.
-
-
-				# Chage the following to change the string that actually appears in the tab:
-
-					tab_label="$PWD:h:t/$PWD:t"
-
-					rlength="20"   # number of characters to appear before truncation from the left
-
-		            echo -ne "\e]1;${(l:rlength:)tab_label}\a"
-
-
-		else
-
-				# For KDE konsole tabs
-
-				# Chage the following to change the string that actually appears in the tab:
-
-					tab_label="$PWD:h:t/$PWD:t"
-
-					rlength="20"   # number of characters to appear before truncation from the left
-
-		        # If we have a functioning KDE console, set the tab in the same way
-		        if [[ -n "$KONSOLE_DCOP_SESSION" && ( -x $(which dcop)  )  ]];then
-		                dcop "$KONSOLE_DCOP_SESSION" renameSession "${(l:rlength:)tab_label}"
-		        else
-		            : # do nothing if tabs don't exist
-		        fi
-
-		fi
-	}
-
-    function settitle   {
-		# Function "settitle"  --  set the title of the iterm title bar. use with chpwd and settab
-
-		# Change the following string to change what appears in the Title Bar label:
-
-
-			title_lab=$HOST:r:r::$PWD
-				# Prints the host name, two colons, absolute path for current directory
-
-			# Change the title bar label dynamically:
-
-			echo -ne "\e]2;[zsh]   $title_lab\a"
-	}
-
-	# Set tab and title bar dynamically using above-defined functions
-
-		function title_tab_chpwd { settab ; settitle }
-
-		# Now we need to run it:
-	    title_tab_chpwd
-
-	# Set tab or title bar label transiently to the currently running command
-
-	if [[ "$TERM_PROGRAM" == "iTerm.app" ]];then
-		function title_tab_preexec {  echo -ne "\e]1; $(history $HISTCMD | cut -b7- ) \a"  }
-		function title_tab_precmd  { settab }
-	else
-		function title_tab_preexec {  echo -ne "\e]2; $(history $HISTCMD | cut -b7- ) \a"  }
-		function title_tab_precmd  { settitle }
-	fi
-
-
-	typeset -ga preexec_functions
-	preexec_functions+=title_tab_preexec
-
-	typeset -ga precmd_functions
-	precmd_functions+=title_tab_precmd
-
-	typeset -ga chpwd_functions
-	chpwd_functions+=title_tab_chpwd
-
-}
-
-####################
-
-set_title_tab
-
-#android dev
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/arlogb/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/arlogb/google-cloud-sdk/path.zsh.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /Users/arlogb/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/Users/arlogb/google-cloud-sdk/completion.zsh.inc'
-fi
 
 eval $(thefuck --alias)

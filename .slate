@@ -1,4 +1,4 @@
-# Slate.app config file 
+# Slate.app config file
 # https://github.com/jigish/slate#readme
 
 # Config
@@ -44,8 +44,6 @@ alias bottomRightQuarter ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
 
 # Application aliases
 # 1 monitor layout
-layout oneScreen 'Eclipse' move ${topHalf}
-layout oneScreen 'MacVim' move ${leftHalf}
 layout twoScreen 'Mail' move ${topHalf}
 layout twoScreen 'Skype' move ${bottomHalf}
 layout twoScreen 'Calendar' move ${rightHalf}
@@ -96,5 +94,4 @@ bind k:cmd     focus down
 bind i:cmd;alt   focus behind
 bind k:cmd;alt focus behind
 
-#bind tab:cmd switch
-
+bind tab:cmd switch

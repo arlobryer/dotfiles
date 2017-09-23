@@ -1,16 +1,8 @@
-"Use pathogen to modify the runtime path to include plugins under
-"~/.vim/bundle directory
-execute pathogen#infect()
-call pathogen#helptags()
-
 """Coding
 set nocompatible	"No compatibility with vi
 syntax on
 set background=dark
 let g:solarized_termcolors = 256
-colorscheme solarized
-
-
 
 set showcmd		"Display incomplete commands
 set number 		"Show line number
@@ -99,15 +91,8 @@ set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline_theme='solarized'
 
-
 "Markdown"
 let g:vim_markdown_folding_disabled=1
-
-"Scratch"
-if argc() == 0
-    au VimEnter * ScratchOpen
-endif
-
 
 "Spelling"
 autocmd BufEnter,BufNewFile,BufRead *.{txt,md} setlocal spell spelllang=en_gb
