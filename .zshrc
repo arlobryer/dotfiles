@@ -138,14 +138,10 @@ function set_title_tab {
 
 set_title_tab
 
-
-function _exists()
-{
-  command -v $1 > /dev/null 2>&1
-  echo "$(( !$? ))"
-}
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#android dev
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /Users/arlogb/google-cloud-sdk/path.zsh.inc ]; then
@@ -156,3 +152,5 @@ fi
 if [ -f /Users/arlogb/google-cloud-sdk/completion.zsh.inc ]; then
   source '/Users/arlogb/google-cloud-sdk/completion.zsh.inc'
 fi
+
+eval $(thefuck --alias)
