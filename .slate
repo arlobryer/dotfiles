@@ -62,9 +62,6 @@ bind o:cmd;ctrl;alt move ${topRightQuarter}
 bind n:cmd;ctrl;alt move ${bottomLeftQuarter}
 bind m:cmd;ctrl;alt move ${bottomRightQuarter}
 
-bind 1:cmd;shift layout oneScreen
-bind 2:cmd;shift layout twoScreen
-
 
 bind ;:cmd;ctrl throw previous
 bind /:cmd;ctrl hint asdfghjkl;qwertyuiop

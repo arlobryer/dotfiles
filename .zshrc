@@ -21,17 +21,12 @@ DISABLE_AUTO_TITLE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(pip git-flow python brew)
-
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/texlive/2013basic/bin/universal-darwin:~/.cabal/bin:$GEMS
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 #this is for the venv wrappers
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 export EDITOR=nano
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -45,4 +40,6 @@ alias grep='grep -i'
 alias ag='ag -i'
 alias gf='git flow'
 
-eval $(thefuck --alias)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -6,21 +6,10 @@ brew update
 brew tap caskroom/cask
 brew install caskroom/cask/brew-cask
 
-brew cask install flashlight
-brew cask install hipchat
 brew cask install iterm2
-brew cask install evernote
 brew cask install flux
-brew cask install amethyst
 brew cask install dropbox
 brew cask install spotify
-brew cask install google-chrome
-brew cask install skype
-brew cask install vlc
-brew cask install itsycal
-brew cask install steam
-brew cask install atom
-brew cask install osxfuse
 
 brew cask cleanup
 
@@ -30,7 +19,6 @@ brew install git git-flow tig
 brew install vim
 brew install aspell
 brew install ghc
-brew install macvim
 brew install wget
 brew install watch
 brew install ruby
