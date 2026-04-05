@@ -9,6 +9,7 @@ font-size = 13
 window-padding-x = 8
 window-padding-y = 4
 macos-titlebar-style = tabs
+window-inherit-working-directory = false
 
 # Shell
 shell-integration = zsh
