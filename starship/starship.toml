@@ -49,7 +49,7 @@ read_only_style = "red"
 [git_branch]
 symbol = " "
 style = "bold mauve"
-format = "[\($symbol$branch(:$remote_branch)\)]($style) "
+format = '[\($symbol$branch(:$remote_branch)\)]($style) '
 truncation_length = 24
 truncation_symbol = "…"
 
