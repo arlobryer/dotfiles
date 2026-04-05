@@ -1,0 +1,42 @@
+[user]
+	name = "Arlo Bryer"
+	email = arlobryer@gmail.com
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+	editor = vim
+	fsmonitor = true
+	untrackedCache = true
+[init]
+	defaultBranch = main
+[alias]
+	lol = log --color --graph --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	loga = log --color --pretty=format:"%ad:%an:%d:%B" --date=short --reverse --all --since=2.months.ago
+	l = log --color
+	s = status
+	co = checkout
+	c = commit
+	a = add
+	ca = commit -a
+	p = pull
+	d = diff
+[color]
+	ui = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[push]
+	default = simple
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[branch]
+	autosetuprebase = always
+[diff]
+	colorMoved = default
+[merge]
+	conflictstyle = zdiff3
+[rerere]
+	enabled = true

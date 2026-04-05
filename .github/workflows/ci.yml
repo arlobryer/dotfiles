@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run shellcheck
+        run: shellcheck setup.sh brewinstall.sh macos_defaults.sh
+
+  brew:
+    name: Brew install
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run brewinstall.sh
+        run: |
+          # Skip casks and interactive steps in CI
+          brew update
+          brew install ripgrep bat eza fd fzf python gh jq atuin zoxide
+          brew install llm
+          brew cleanup
