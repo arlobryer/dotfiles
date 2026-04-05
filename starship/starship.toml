@@ -39,10 +39,10 @@ overlay1 = "#7f849c"
 [directory]
 truncation_length = 3
 truncate_to_repo = false
-style = "bold fg:base bg:blue"
-format = "[ $path$read_only ]($style) "
+style = "bold blue"
+format = "[$path$read_only]($style) "
 read_only = " 󰌾"
-read_only_style = "bold fg:red bg:blue"
+read_only_style = "red"
 
 # ─── Git ─────────────────────────────────────────────────────────────────────
 
