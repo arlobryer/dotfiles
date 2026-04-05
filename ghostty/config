@@ -17,4 +17,4 @@ shell-integration = zsh
 confirm-close-surface = false
 
 # Keybinds
-keybind = global:cmd+shift+i=toggle_quick_terminal
+keybind = global:cmd+shift+i=toggle_visibility
