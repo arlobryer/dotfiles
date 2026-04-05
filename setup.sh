@@ -44,7 +44,7 @@ for entry in "${SYMLINKS[@]}"; do
 done | sort
 echo ""
 echo "  2. Install Homebrew (if not already installed)"
-echo "  3. Install packages via brewinstall.sh"
+echo "  3. Install packages via Brewfile (skips already-installed)"
 echo "  4. Install oh-my-zsh (if not already installed)"
 echo "  5. Install zsh theme"
 echo ""
@@ -113,7 +113,7 @@ fi
 
 echo ""
 echo "Installing packages..."
-sh "$DOTFILES_DIR/brewinstall.sh"
+brew bundle --file="$DOTFILES_DIR/Brewfile"
 
 ###############################################################################
 # oh-my-zsh
