@@ -90,7 +90,7 @@ python_binary = ["python3", "python"]
 min_time = 2_000
 show_milliseconds = true
 style = "bold overlay1"
-format = "[took $duration]($style)  "
+format = "[took $duration]($style)"
 
 # ─── Exit status ─────────────────────────────────────────────────────────────
 
