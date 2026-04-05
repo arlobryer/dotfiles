@@ -14,6 +14,7 @@ SYMLINKS=(
   ".RectangleConfig.json:$HOME/.RectangleConfig.json"
   ".claude/settings.json:$HOME/.claude/settings.json"
   "ghostty/config:$HOME/.config/ghostty/config"
+  "starship/starship.toml:$HOME/.config/starship.toml"
   "vscode/settings.json:$HOME/Library/Application Support/Code/User/settings.json"
 )
 
@@ -21,6 +22,7 @@ SYMLINKS=(
 MKDIR_TARGETS=(
   "$HOME/.claude"
   "$HOME/.config/ghostty"
+  "$HOME/.config"
   "$HOME/Library/Application Support/Code/User"
 )
 
@@ -47,8 +49,7 @@ done | sort
 echo ""
 echo "  2. Install Homebrew (if not already installed)"
 echo "  3. Install packages via Brewfile (skips already-installed)"
-echo "  4. Install oh-my-zsh (if not already installed)"
-echo "  5. Install zsh theme"
+echo "  4. Install VS Code extensions"
 echo ""
 echo "  Backups (if needed) → $BACKUP_DIR"
 echo ""
@@ -116,24 +117,6 @@ fi
 echo ""
 echo "Installing packages..."
 brew bundle --file="$DOTFILES_DIR/Brewfile"
-
-###############################################################################
-# oh-my-zsh
-###############################################################################
-
-echo ""
-echo "Checking oh-my-zsh..."
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  echo "  Installing oh-my-zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-else
-  echo "  [ok] oh-my-zsh already installed"
-fi
-
-echo ""
-echo "Installing zsh theme..."
-cp "$DOTFILES_DIR/arlogb.zsh-theme" "$HOME/.oh-my-zsh/themes/arlogb.zsh-theme"
-echo "  [ok] arlogb.zsh-theme"
 
 ###############################################################################
 # VS Code extensions

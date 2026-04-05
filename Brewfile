@@ -32,6 +32,7 @@ brew "jq"       # JSON processor
 # Shell enhancements
 brew "atuin"    # shell history (searchable, synced)
 brew "zoxide"   # smart cd
+brew "starship" # prompt
 
 # LLM in the shell
 brew "llm"
