@@ -11,11 +11,10 @@ $git_branch\
 $git_status\
 $nodejs\
 $python\
-$cmd_duration\
 $status\
  $character"""
 
-right_format = """$time"""
+right_format = """$cmd_duration$time"""
 
 add_newline = true
 
@@ -89,8 +88,9 @@ python_binary = ["python3", "python"]
 
 [cmd_duration]
 min_time = 2_000
+show_milliseconds = true
 style = "bold overlay1"
-format = "[ $duration]($style) "
+format = "[took $duration]($style)  "
 
 # ─── Exit status ─────────────────────────────────────────────────────────────
 
