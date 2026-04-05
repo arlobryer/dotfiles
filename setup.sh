@@ -43,10 +43,11 @@ for entry in "${SYMLINKS[@]}"; do
   fi
 done | sort
 echo ""
-echo "  2. Install Homebrew (if not already installed)"
-echo "  3. Install packages via Brewfile (skips already-installed)"
-echo "  4. Install oh-my-zsh (if not already installed)"
-echo "  5. Install zsh theme"
+echo "  2. Check Xcode CLI tools (required for Homebrew)"
+echo "  3. Install Homebrew (if not already installed)"
+echo "  4. Install packages via Brewfile (skips already-installed)"
+echo "  5. Install oh-my-zsh (if not already installed)"
+echo "  6. Install zsh theme"
 echo ""
 echo "  Backups (if needed) → $BACKUP_DIR"
 echo ""
@@ -96,6 +97,22 @@ for entry in "${SYMLINKS[@]}"; do
   ln -s "$source_path" "$target"
   echo "  [linked]  $target → $source_path"
 done
+
+###############################################################################
+# Xcode CLI tools
+###############################################################################
+
+echo ""
+echo "Checking Xcode CLI tools..."
+if ! xcode-select -p &>/dev/null; then
+  echo "  Xcode CLI tools not found. Launching installer..."
+  xcode-select --install
+  echo ""
+  echo "  ⚠ Install the Xcode CLI tools, then re-run this script."
+  exit 1
+else
+  echo "  [ok] Xcode CLI tools installed"
+fi
 
 ###############################################################################
 # Homebrew
