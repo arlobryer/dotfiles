@@ -14,7 +14,7 @@ brew install bat       # better cat
 brew install eza       # better ls
 brew install fd        # better find
 brew install fzf       # fuzzy finder
-$(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
+# fzf shell integration (key bindings + completions) — handled in .zshrc via eval "$(fzf --zsh)"
 
 # Dev tools
 brew install python

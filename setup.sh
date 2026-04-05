@@ -28,7 +28,7 @@ MKDIR_TARGETS=(
 
 echo ""
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║                     dotfiles setup                          ║"
+echo "║                        dotfiles setup                        ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 echo "This script will:"

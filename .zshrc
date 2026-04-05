@@ -33,6 +33,9 @@ alias la='eza --long --all --git'
 alias lt='eza --tree --level=2'
 alias cat='bat --paging=never'
 
+# fzf (key bindings + completions)
+eval "$(fzf --zsh)"
+
 # Atuin (shell history)
 eval "$(atuin init zsh)"
 
