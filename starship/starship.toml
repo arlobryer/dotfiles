@@ -1,3 +1,159 @@
 # Starship config
-# Full theme TBD — see inspiration agent output
-add_newline = false
+# Designed for: macOS + Ghostty + JetBrains Mono Nerd Font
+# Philosophy: polished, context-aware, never cluttered
+# Two-line prompt: info line on top, clean ❯ input line below
+# Right-prompt carries time + Claude Code indicator
+
+# ─── Global ──────────────────────────────────────────────────────────────────
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$python\
+$cmd_duration\
+$status\
+$line_break\
+$character"""
+
+right_format = """$env_var\
+$time"""
+
+add_newline = true
+
+palette = "mocha"
+
+[palettes.mocha]
+text     = "#cdd6f4"
+mauve    = "#cba6f7"
+blue     = "#89b4fa"
+sapphire = "#74c7ec"
+teal     = "#94e2d5"
+green    = "#a6e3a1"
+yellow   = "#f9e2af"
+peach    = "#fab387"
+red      = "#f38ba8"
+overlay1 = "#7f849c"
+
+# ─── Directory ───────────────────────────────────────────────────────────────
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold blue"
+format = "[$path]($style)[$read_only]($read_only_style) "
+read_only = " 󰌾"
+read_only_style = "red"
+
+# ─── Git ─────────────────────────────────────────────────────────────────────
+
+[git_branch]
+symbol = " "
+style = "bold mauve"
+format = "[$symbol$branch(:$remote_branch)]($style) "
+truncation_length = 24
+truncation_symbol = "…"
+
+[git_status]
+style = "bold yellow"
+format = '([$all_status$ahead_behind]($style) )'
+conflicted = "󰩖 "
+ahead      = "⇡${count}"
+behind     = "⇣${count}"
+diverged   = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked  = "? "
+stashed    = " "
+modified   = "! "
+staged     = "+ "
+renamed    = "» "
+deleted    = "✘ "
+
+# ─── Language runtimes ───────────────────────────────────────────────────────
+
+[nodejs]
+symbol = " "
+style = "bold green"
+format = "[$symbol($version)]($style) "
+detect_files = ["package.json", ".node-version", ".nvmrc"]
+detect_folders = ["node_modules"]
+
+[python]
+symbol = " "
+style = "bold yellow"
+format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style) '
+detect_files = ["requirements.txt", "pyproject.toml", "setup.py", "setup.cfg", ".python-version", "Pipfile", "poetry.lock"]
+detect_folders = [".venv", "venv"]
+python_binary = ["python3", "python"]
+
+# ─── Command duration ────────────────────────────────────────────────────────
+
+[cmd_duration]
+min_time = 2_000
+style = "bold overlay1"
+format = "[ $duration]($style) "
+
+# ─── Exit status ─────────────────────────────────────────────────────────────
+
+[status]
+disabled = false
+style = "bold red"
+format = "[$symbol$status]($style) "
+symbol = "✗ "
+map_symbol = true
+
+# ─── Input character ─────────────────────────────────────────────────────────
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol   = "[❯](bold red)"
+vimcmd_symbol  = "[❮](bold mauve)"
+
+# ─── Right prompt ────────────────────────────────────────────────────────────
+
+[time]
+disabled = false
+style = "bold overlay1"
+format = "[$time]($style)"
+time_format = "%H:%M"
+use_12hr = false
+
+# ─── Claude Code indicator ───────────────────────────────────────────────────
+# Requires the claude() wrapper in .zshrc which sets CLAUDE_ACTIVE=1.
+# Shows 󱙺 claude in the right prompt while a Claude Code session is active.
+
+[env_var.CLAUDE_ACTIVE]
+variable = "CLAUDE_ACTIVE"
+default  = ""
+style    = "bold sapphire"
+format   = "[󱙺 claude ]($style)"
+
+# ─── Disabled defaults ───────────────────────────────────────────────────────
+
+[battery]
+disabled = true
+
+[package]
+disabled = true
+
+[username]
+disabled = true
+
+[hostname]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[azure]
+disabled = true
+
+[terraform]
+disabled = true

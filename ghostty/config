@@ -1,9 +1,9 @@
 # Ghostty config
 # Docs: https://ghostty.org/docs/config
 
-# Font — set to your preferred Nerd Font or leave commented for system default
-# font-family = JetBrainsMono Nerd Font
-# font-size = 13
+# Font
+font-family = JetBrainsMono Nerd Font
+font-size = 13
 
 # Window
 window-padding-x = 8

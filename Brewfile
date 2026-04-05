@@ -33,6 +33,7 @@ brew "jq"       # JSON processor
 brew "atuin"    # shell history (searchable, synced)
 brew "zoxide"   # smart cd
 brew "starship" # prompt
+cask "font-jetbrains-mono-nerd-font"
 
 # LLM in the shell
 brew "llm"

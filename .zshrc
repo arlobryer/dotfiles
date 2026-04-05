@@ -28,5 +28,12 @@ eval "$(atuin init zsh)"
 # zoxide (smart cd)
 eval "$(zoxide init zsh)"
 
+# Claude Code — stamp CLAUDE_ACTIVE into the shell while a session is running
+# This lets Starship show an indicator in the right prompt
+function claude() {
+  CLAUDE_ACTIVE=1 command claude "$@"
+  unset CLAUDE_ACTIVE
+}
+
 # Starship prompt
 eval "$(starship init zsh)"
