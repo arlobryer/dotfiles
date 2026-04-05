@@ -14,12 +14,14 @@ SYMLINKS=(
   ".RectangleConfig.json:$HOME/.RectangleConfig.json"
   ".claude/settings.json:$HOME/.claude/settings.json"
   "ghostty/config:$HOME/.config/ghostty/config"
+  "vscode/settings.json:$HOME/Library/Application Support/Code/User/settings.json"
 )
 
 # Directories that need to exist before symlinking
 MKDIR_TARGETS=(
   "$HOME/.claude"
   "$HOME/.config/ghostty"
+  "$HOME/Library/Application Support/Code/User"
 )
 
 ###############################################################################
@@ -132,6 +134,20 @@ echo ""
 echo "Installing zsh theme..."
 cp "$DOTFILES_DIR/arlogb.zsh-theme" "$HOME/.oh-my-zsh/themes/arlogb.zsh-theme"
 echo "  [ok] arlogb.zsh-theme"
+
+###############################################################################
+# VS Code extensions
+###############################################################################
+
+echo ""
+echo "Installing VS Code extensions..."
+if command -v code &>/dev/null; then
+  while IFS= read -r ext; do
+    code --install-extension "$ext" --force 2>&1 | grep -v "already installed"
+  done < "$DOTFILES_DIR/vscode/extensions.txt"
+else
+  echo "  [skip] 'code' command not found — install VS Code first"
+fi
 
 ###############################################################################
 # Done

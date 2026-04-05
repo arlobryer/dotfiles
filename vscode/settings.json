@@ -1,0 +1,93 @@
+{
+  "workbench.colorTheme": "Atom One Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.fontAliasing": "auto",
+  "workbench.preferredLightColorTheme": "Solarized Light",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "editor.renderWhitespace": "boundary",
+  "editor.cursorBlinking": "phase",
+  "editor.cursorStyle": "line",
+  "editor.lineNumbers": "on",
+  "editor.minimap.enabled": false,
+  "editor.tabCompletion": "on",
+  "editor.suggest.showWords": false,
+  "editor.multiCursorModifier": "alt",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.inlineSuggest.enabled": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "debug.console.fontSize": 11,
+  "terminal.integrated.cursorBlinking": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "window.autoDetectHighContrast": false,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.egg": true
+  },
+  "gitlens.blame.line.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "todo-tree.tree.showScanModeButton": false,
+  "material-icon-theme.showUpdateMessage": false,
+  "redhat.telemetry.enabled": false,
+  "aws.suppressPrompts": {
+    "regionAddAutomatically": true
+  },
+  "circleci.hostUrl": "",
+  "circleci.notifications.areActive": "no",
+  "claudeCode.preferredLocation": "panel",
+  "playwright.reuseBrowser": true,
+  "eslint.format.enable": true,
+  "eslint.run": "onSave",
+  "eslint.validate": [
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact"
+  ],
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "yaml.customTags": [
+    "!And", "!And sequence",
+    "!If", "!If sequence",
+    "!Not", "!Not sequence",
+    "!Equals", "!Equals sequence",
+    "!Or", "!Or sequence",
+    "!FindInMap", "!FindInMap sequence",
+    "!Base64",
+    "!Join", "!Join sequence",
+    "!Cidr",
+    "!Ref",
+    "!Sub", "!Sub sequence",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue", "!ImportValue sequence",
+    "!Select", "!Select sequence",
+    "!Split", "!Split sequence"
+  ],
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": false,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "python.autoComplete.extraPaths": [],
+  "python.analysis.extraPaths": []
+}
