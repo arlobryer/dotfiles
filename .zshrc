@@ -32,19 +32,12 @@ command -v fzf &>/dev/null && eval "$(fzf --zsh)"
 # Atuin (shell history)
 command -v atuin &>/dev/null && eval "$(atuin init zsh)"
 
-# zoxide (smart cd)
-command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
-
-# Completions — must come after tools that register completions
+# Completions — must come before tools that hook into the completion system
 autoload -Uz compinit && compinit
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# Claude Code — export CLAUDE_ACTIVE into the shell while a session is running
-# This lets Starship show an indicator in the right prompt
-function claude() {
-  CLAUDE_ACTIVE=1 command claude "$@"
-  unset CLAUDE_ACTIVE
-}
+# zoxide (smart cd) — must come after compinit
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
 # Starship prompt
 command -v starship &>/dev/null && eval "$(starship init zsh)"
