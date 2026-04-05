@@ -4,19 +4,19 @@ set -e
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y%m%d_%H%M%S)"
 
-# Symlink map: repo path -> target path
-declare -A SYMLINKS=(
-  [".zshrc"]="$HOME/.zshrc"
-  [".zprofile"]="$HOME/.zprofile"
-  [".gitconfig"]="$HOME/.gitconfig"
-  [".gitignore"]="$HOME/.gitignore"
-  [".vimrc"]="$HOME/.vimrc"
-  [".RectangleConfig.json"]="$HOME/.RectangleConfig.json"
-  [".claude/settings.json"]="$HOME/.claude/settings.json"
-  ["ghostty/config"]="$HOME/.config/ghostty/config"
+# Symlink pairs: "repo/path:target/path"
+SYMLINKS=(
+  ".zshrc:$HOME/.zshrc"
+  ".zprofile:$HOME/.zprofile"
+  ".gitconfig:$HOME/.gitconfig"
+  ".gitignore:$HOME/.gitignore"
+  ".vimrc:$HOME/.vimrc"
+  ".RectangleConfig.json:$HOME/.RectangleConfig.json"
+  ".claude/settings.json:$HOME/.claude/settings.json"
+  "ghostty/config:$HOME/.config/ghostty/config"
 )
 
-# Files that need their parent directory created first
+# Directories that need to exist before symlinking
 MKDIR_TARGETS=(
   "$HOME/.claude"
   "$HOME/.config/ghostty"
@@ -34,8 +34,8 @@ echo ""
 echo "This script will:"
 echo ""
 echo "  1. Symlink dotfiles from $DOTFILES_DIR to ~/"
-for src in "${!SYMLINKS[@]}"; do
-  target="${SYMLINKS[$src]}"
+for entry in "${SYMLINKS[@]}"; do
+  target="${entry#*:}"
   if [ -e "$target" ] && [ ! -L "$target" ]; then
     echo "       $target  (existing file will be backed up)"
   else
@@ -69,8 +69,9 @@ for dir in "${MKDIR_TARGETS[@]}"; do
   mkdir -p "$dir"
 done
 
-for src in "${!SYMLINKS[@]}"; do
-  target="${SYMLINKS[$src]}"
+for entry in "${SYMLINKS[@]}"; do
+  src="${entry%%:*}"
+  target="${entry#*:}"
   source_path="$DOTFILES_DIR/$src"
 
   # Skip if source doesn't exist
