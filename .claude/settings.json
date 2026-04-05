@@ -3,5 +3,9 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "model": "sonnet",
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  }
 }
