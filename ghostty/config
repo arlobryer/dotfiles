@@ -15,3 +15,6 @@ shell-integration = zsh
 
 # Behaviour
 confirm-close-surface = false
+
+# Keybinds
+keybind = global:cmd+shift+i=toggle_quick_terminal
