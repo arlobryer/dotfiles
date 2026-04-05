@@ -11,9 +11,21 @@ export NVM_DIR="$HOME/.nvm"
 
 export EDITOR=vim
 
+# Completions
+autoload -Uz compinit && compinit
+
+# Colors — shared between ls, eza, and zsh tab completion
+# LSCOLORS: macOS ls (bold blue dirs, bold cyan symlinks, bold green executables)
+export CLICOLOR=1
+export LSCOLORS=ExGxxxxxCxxxxxxxxxxxxx
+# LS_COLORS: zsh tab completion
+export LS_COLORS='di=1;34:ln=1;36:ex=1;32'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 # Aliases
 alias rm='rm -i'
 alias bc='bc -l'
+alias ls='eza'
 alias ll='eza --long --git'
 alias la='eza --long --all --git'
 alias lt='eza --tree --level=2'

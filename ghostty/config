@@ -10,6 +10,7 @@ window-padding-x = 8
 window-padding-y = 4
 macos-titlebar-style = tabs
 window-inherit-working-directory = false
+working-directory = home
 
 # Shell
 shell-integration = zsh
