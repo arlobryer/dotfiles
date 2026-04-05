@@ -14,7 +14,7 @@ $python\
 $status\
  $character"""
 
-right_format = """$cmd_duration$time"""
+right_format = """$cmd_duration $time"""
 
 add_newline = true
 
