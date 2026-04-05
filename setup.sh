@@ -50,7 +50,7 @@ echo "  5. Install zsh theme"
 echo ""
 echo "  Backups (if needed) → $BACKUP_DIR"
 echo ""
-read -p "Continue? (y/n) " -n 1
+read -rp "Continue? (y/n) " -n 1
 echo ""
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
   echo "Aborted."
