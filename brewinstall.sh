@@ -3,7 +3,7 @@
 brew update
 
 # Casks
-brew install --cask iterm2 spotify visual-studio-code claude-code meetingbar rectangle
+brew install --cask ghostty spotify visual-studio-code claude-code meetingbar rectangle
 
 # Shell tools
 brew install zsh git tig vim wget watch

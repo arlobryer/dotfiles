@@ -13,11 +13,13 @@ declare -A SYMLINKS=(
   [".vimrc"]="$HOME/.vimrc"
   [".RectangleConfig.json"]="$HOME/.RectangleConfig.json"
   [".claude/settings.json"]="$HOME/.claude/settings.json"
+  ["ghostty/config"]="$HOME/.config/ghostty/config"
 )
 
 # Files that need their parent directory created first
 MKDIR_TARGETS=(
   "$HOME/.claude"
+  "$HOME/.config/ghostty"
 )
 
 ###############################################################################

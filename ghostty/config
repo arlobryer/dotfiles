@@ -1,0 +1,17 @@
+# Ghostty config
+# Docs: https://ghostty.org/docs/config
+
+# Font — set to your preferred Nerd Font or leave commented for system default
+# font-family = JetBrainsMono Nerd Font
+# font-size = 13
+
+# Window
+window-padding-x = 8
+window-padding-y = 4
+macos-titlebar-style = hidden
+
+# Shell
+shell-integration = zsh
+
+# Behaviour
+confirm-close-surface = false
