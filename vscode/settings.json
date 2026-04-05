@@ -25,7 +25,7 @@
   "explorer.confirmDelete": false,
   "debug.console.fontSize": 11,
   "terminal.integrated.cursorBlinking": true,
-  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.untrustedFiles": "prompt",
   "window.autoDetectHighContrast": false,
   "files.exclude": {
     "**/.git": true,

@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run shellcheck
-        run: shellcheck setup.sh brewinstall.sh macos_defaults.sh
+        run: shellcheck setup.sh macos_defaults.sh
 
   macos:
     name: macOS
