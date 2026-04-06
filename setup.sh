@@ -160,9 +160,10 @@ echo ""
 echo "Optional next step — apply macOS defaults:"
 echo "  ./macos_defaults.sh [--dry-run]"
 echo ""
-echo "Don't forget to open and initialise these apps:"
-echo "  - Raycast   — set as Spotlight replacement, configure extensions"
-echo "  - Signal    — sign in with phone number"
-echo "  - Atuin     — run 'atuin login' to sync shell history"
-echo "  - Rectangle — verify shortcuts loaded from config"
+echo "Don't forget to initialise these apps:"
+grep '# init:' "$DOTFILES_DIR/Brewfile" | while IFS= read -r line; do
+  app=$(echo "$line" | sed -E 's/.*(brew|cask) "([^"]+)".*/\2/')
+  note=$(echo "$line" | sed -E 's/.*# init: //')
+  printf "  - %-20s %s\n" "$app" "$note"
+done
 echo ""

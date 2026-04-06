@@ -1,13 +1,13 @@
 # Casks
 cask "ghostty"
 cask "orbstack"
-cask "raycast"
+cask "raycast"    # init: set as Spotlight replacement, configure extensions
 cask "spotify"
 cask "visual-studio-code"
 cask "claude-code"
 cask "meetingbar"
-cask "rectangle"
-cask "signal"
+cask "rectangle"  # init: verify shortcuts loaded from config
+cask "signal"     # init: sign in with phone number
 
 # Shell tools
 brew "zsh"
@@ -31,7 +31,7 @@ brew "gh"       # GitHub CLI
 brew "jq"       # JSON processor
 
 # Shell enhancements
-brew "atuin"    # shell history (searchable, synced)
+brew "atuin"    # shell history
 brew "zoxide"   # smart cd
 brew "starship" # prompt
 cask "font-jetbrains-mono-nerd-font"
