@@ -104,7 +104,12 @@ done
 # Rectangle
 ###############################################################################
 
-# If Rectangle is running, relaunch it so it picks up the config symlink
+# Suppress Rectangle's first-run wizard by writing the "has launched before"
+# flag and defaulting to alternate shortcuts — must be set before first launch
+defaults write com.knollsoft.Rectangle SUHasLaunchedBefore -bool true
+defaults write com.knollsoft.Rectangle alternateDefaultShortcuts -int 1
+
+# If Rectangle is already running, relaunch it to pick up the config symlink
 if pgrep -x Rectangle &>/dev/null; then
   echo ""
   echo "Relaunching Rectangle to load config..."
