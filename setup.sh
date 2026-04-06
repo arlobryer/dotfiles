@@ -101,6 +101,19 @@ for entry in "${SYMLINKS[@]}"; do
 done
 
 ###############################################################################
+# Rectangle
+###############################################################################
+
+# If Rectangle is running, relaunch it so it picks up the config symlink
+if pgrep -x Rectangle &>/dev/null; then
+  echo ""
+  echo "Relaunching Rectangle to load config..."
+  osascript -e 'quit app "Rectangle"'
+  sleep 1
+  open -a Rectangle
+fi
+
+###############################################################################
 # Homebrew
 ###############################################################################
 
