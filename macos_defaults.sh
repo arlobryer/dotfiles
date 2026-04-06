@@ -44,11 +44,6 @@ run defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # Save to disk (not iCloud) by default
 run defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-# Full keyboard access for all controls (tab through dialogs etc)
-run defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
-# Disable press-and-hold for keys (enable key repeat)
-run defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Disable auto-correct
 run defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -207,9 +202,21 @@ run defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGest
 run defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 1
 run defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold -int 1
 
+###############################################################################
+# Keyboard                                                                    #
+###############################################################################
+
+echo "  Keyboard..."
+
+# Disable press-and-hold (enables key repeat)
+run defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 # Key repeat speed (lower = faster; macOS default is 6/25)
 run defaults write NSGlobalDomain KeyRepeat -int 2
 run defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+# Full keyboard access for all controls (tab through dialogs etc)
+run defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 ###############################################################################
 # Activity Monitor                                                            #
