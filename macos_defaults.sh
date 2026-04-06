@@ -172,11 +172,44 @@ run defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 echo "  Trackpad..."
 
+# Tracking speed (0-3, default 1.5)
+run defaults write NSGlobalDomain com.apple.trackpad.scaling -float 1.5
+
 # Enable tap to click — covers both built-in (Apple Silicon) and Bluetooth trackpads
 run defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 run defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 run defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 run defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Right-click (two-finger tap)
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
+run defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+
+# Scrolling and gestures
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadScroll -bool true
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadHorizScroll -bool true
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadMomentumScroll -bool true
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadPinch -bool true
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadRotate -bool true
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -bool true
+
+# Three-finger swipe for app exposé / spaces (2 = three-finger swipe)
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 2
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 2
+
+# Four-finger swipe for Mission Control / spaces
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 2
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -int 2
+run defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -int 2
+
+# Click threshold (0=light, 1=medium, 2=firm)
+run defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 1
+run defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold -int 1
+
+# Key repeat speed (lower = faster; macOS default is 6/25)
+run defaults write NSGlobalDomain KeyRepeat -int 2
+run defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 ###############################################################################
 # Activity Monitor                                                            #
