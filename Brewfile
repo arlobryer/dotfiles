@@ -7,6 +7,7 @@ cask "visual-studio-code"
 cask "claude-code"
 cask "meetingbar"
 cask "rectangle"
+cask "signal"
 
 # Shell tools
 brew "zsh"
